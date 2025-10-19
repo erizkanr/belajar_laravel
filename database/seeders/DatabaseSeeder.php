@@ -14,6 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
+        $this->call([
+            KategoriTasSeeder::class,
+        ]);
+
         User::create([
             'name' => 'Tas',
             'email' => 'admin@gmail.com',

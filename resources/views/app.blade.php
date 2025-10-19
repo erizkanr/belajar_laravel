@@ -22,9 +22,6 @@
     <main class="container">
         @yield('content')
     </main>
-    
-    <footer>
-        <p>© Tas</p>
-    </footer>
+
 </body>
 </html>

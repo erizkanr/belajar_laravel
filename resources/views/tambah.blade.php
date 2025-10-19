@@ -7,21 +7,34 @@
             @csrf
             <div class="form-group">
                 <label for="nama">Nama:</label>
-                <input type="text" id="nama" name="nama">
+                <input type="text" id="nama" name="nama" value="{{ old('nama') }}">
             </div>
             <div class="form-group">
                 <label for="merk">Merk:</label>
-                <input type="text" id="merk" name="merk">
+                <input type="text" id="merk" name="merk" value="{{ old('merk') }}">
             </div>
+            
+            <div class="form-group">
+                <label for="kategori_tas_id">Kategori:</label>
+                <select id="kategori_tas_id" name="kategori_tas_id" required>
+                    <option value="">-- Pilih Kategori --</option>
+                    @foreach($kategoris as $kategori)
+                        <option value="{{ $kategori->id }}" {{ old('kategori_tas_id') == $kategori->id ? 'selected' : '' }}>
+                            {{ $kategori->nama }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            
             <div class="form-group">
                 <label for="harga">Harga:</label>
-                <input type="text" id="harga" name="harga">
+                <input type="text" id="harga" name="harga" value="{{ old('harga') }}">
             </div>
             <div class="form-group">
                 <label for="foto">Foto:</label>
                 <input type="file" id="foto" name="foto">
             </div>
-            <button type="submit" class="btn-primary">Simpan</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
     </div>
 @endsection
