@@ -10,6 +10,7 @@
                     <th>Nama</th>
                     <th>Merk</th>
                     <th>Harga</th>
+                    <th>Kategori</th>
                     <th>Opsi</th>
                 </tr>
             </thead>
@@ -19,6 +20,7 @@
                     <td>{{ $tas->nama }}</td>
                     <td>{{ $tas->merk }}</td>
                     <td>Rp {{ number_format($tas->harga, 0, ',', '.') }}</td>
+                    <td>{{ $tas->kategori ? $tas->kategori->nama : "Kategori null"}}</td>
                     <td>
                         {{-- Tombol Edit --}}
                         <a href="{{ route('tas.edit', $tas->id) }}" class="btn-opsi btn-edit">edit</a>

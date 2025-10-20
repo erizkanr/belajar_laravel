@@ -50,7 +50,7 @@ class TasController extends Controller
         return redirect()->route('home')->with('success', 'Data tas berhasil ditambahkan!');
     }
 
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         $tas = Tas::findOrFail($id);
         $kategoris = KategoriTas::all();
@@ -63,7 +63,7 @@ class TasController extends Controller
             'nama' => 'required|string|max:255',
             'merk' => 'required|string|max:255',
             'kategori_tas_id' => 'required|exists:kategori_tas,id',
-            'harga' => 'required|integer',
+            'harga' => 'required|numeric',
         ]);
 
         $tas = Tas::findOrFail($id);
